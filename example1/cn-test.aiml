@@ -13,14 +13,21 @@
 <category>
 <pattern>* 再见</pattern>
 <template>
-<srai>再见</srai>
+<srai>BYE</srai>
+</template>
+</category>
+
+<category>
+<pattern>再见</pattern>
+<template>
+<srai>BYE</srai>
 </template>
 </category>
 
 <category>
 <pattern>你好</pattern>
 <template>
-<srai>你好</srai>
+<srai>HELLO</srai>
 </template>
 </category>
 
@@ -35,9 +42,8 @@
 </category>
 
 
-
 <category>
-<pattern>再见</pattern>
+<pattern>BYE</pattern>
 <template>
 <random>
 <li>再见<get name="name"/>.</li>
@@ -50,7 +56,7 @@
 </category>
 
 <category>
-<pattern>你好</pattern>
+<pattern>HELLO</pattern>
 <template>
 <random>
 <li>你好.</li>
@@ -77,15 +83,6 @@
 </template>
 </category>
 
-<category>
-  <pattern>无聊啊</pattern>
-  <template>
-    <condition>
-      <li><srai>INACTIVITYQUESTIONS</srai></li>
-    </condition>
-  </template>
-</category>
-
 
 <category>
   <pattern>*</pattern>
@@ -95,7 +92,6 @@
     </condition>
   </template>
 </category>
-
 
 
 <category>
@@ -128,17 +124,7 @@
 <that>你多大了</that>
 <template>
 <think><set name="age"><formal><star/></formal></set></think>
-哇, <get name="age"/> 岁, 如花似玉的年龄.
-</template>
-</category>
-
-
-<category>
-<pattern>*</pattern>
-<that>你多大了</that>
-<template>
-<think><set name="age"><formal><star/></formal></set></think>
-哇, <get name="age"/> 岁, 如花似玉的年龄.
+<srai>NAME AGE</srai>
 </template>
 </category>
 
@@ -147,9 +133,31 @@
 <that>你多大了</that>
 <template>
 <think><set name="age"><formal><star/></formal></set></think>
-哇, <get name="age"/> 岁, 如花似玉的年龄.
+<srai>NAME AGE</srai>
 </template>
 </category>
+
+<category>
+<pattern>*</pattern>
+<that>你多大了</that>
+<template>
+<think><set name="age"><formal><star/></formal></set></think>
+<srai>NAME AGE</srai>
+</template>
+</category>
+
+
+<category>
+<pattern>NAME AGE</pattern>
+<template>
+<random>
+<li>哇, <get name="age"/> 岁, 如花似玉的年龄.</li>
+<li>你都 <get name="age"/> 岁了, 好老.</li>
+<li><get name="age"/> 岁, 我比你年轻好多好多.</li>
+</random>
+</template>
+</category>
+
 
 
 <category>
