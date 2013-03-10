@@ -2,7 +2,9 @@
 
 ## PyAIML 中文支持
 
-中文支持维护(current maintainer): andelf <andelf AT gmail.com>
+中文支持维护(current maintainer): andelf (andelf AT gmail.com)
+
+<img src="https://raw.github.com/andelf/PyAIML/master/screenshot.jpg" />
 
 NOTE:
 
