@@ -21,8 +21,8 @@ class PatternMgr:
                 self._root = {}
                 self._templateCount = 0
                 self._botName = u"Nameless"
-                punctuation = "\"`~!@#$%^&*()-_=+[{]}\|;:',<.>/?"
-                self._puncStripRE = re.compile("[" + re.escape(punctuation) + "]")
+                punctuation = u"\"`~!@#$%^&*()-_=+[{]}\|;:',<.>/?"
+                self._puncStripRE = re.compile("[" + re.escape(punctuation) + "]", re.U) # FIXED: chinese unicode
                 self._whitespaceRE = re.compile("\s+", re.LOCALE | re.UNICODE)
 
         def numTemplates(self):
@@ -148,7 +148,6 @@ class PatternMgr:
                 if topic.strip() == u"": topic = u"ULTRABOGUSDUMMYTOPIC" # 'topic' must never be empty
                 topicInput = string.upper(topic)
                 topicInput = re.sub(self._puncStripRE, " ", topicInput)
-
                 # Pass the input off to the recursive call
                 patMatch, template = self._match(input.split(), thatInput.split(), topicInput.split(), self._root)
                 return template
@@ -197,7 +196,6 @@ class PatternMgr:
                 else:
                         # unknown value
                         raise ValueError, "starType must be in ['star', 'thatstar', 'topicstar']"
-
                 # compare the input string to the matched pattern, word by word.
                 # At the end of this loop, if foundTheRightStar is true, start and
                 # end will contain the start and end indices (in "words") of
@@ -228,9 +226,14 @@ class PatternMgr:
                                                         break
                                                 # If the words have started matching the
                                                 # pattern again, the star has ended.
-                                                if patMatch[j+1] == words[k]:
+                                                # FIXED: for pattch "* A B", "A C A B" will match
+                                                # and this is a bug
+                                                #if patMatch[j+1] == words[k]:
+                                                if patMatch[j+1:] == words[k:]:
                                                         end = k - 1
                                                         i = k
+                                                        print 'k =', k
+                                                        print 'end =', end
                                                         break
                                 # If we just finished processing the star we cared
                                 # about, we exit the loop early.
@@ -241,6 +244,8 @@ class PatternMgr:
 
                 # extract the star words from the original, unmutilated input.
                 if foundTheRightStar:
+                        print 'found'
+                        print 'debug pattern=', repr(pattern), start, end
                         #print string.join(pattern.split()[start:end+1])
                         if starType == 'star': return string.join(pattern.split()[start:end+1])
                         elif starType == 'thatstar': return string.join(that.split()[start:end+1])

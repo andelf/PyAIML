@@ -891,7 +891,6 @@ class Kernel:
         command = ""
         for e in elem[2:]:
             command += self._processElement(e, sessionID)
-
         # normalize the path to the command.  Under Windows, this
         # switches forward-slashes to back-slashes; all system
         # elements should use unix-style paths for cross-platform
@@ -899,6 +898,7 @@ class Kernel:
         #executable,args = command.split(" ", 1)
         #executable = os.path.normpath(executable)
         #command = executable + " " + args
+        command = command.encode(self._textEncoding)
         command = os.path.normpath(command)
 
         # execute the command.
@@ -914,6 +914,7 @@ class Kernel:
         for line in out:
             response += line + "\n"
         response = string.join(response.splitlines()).strip()
+        response = response.decode(self._textEncoding) # FIXED: multilang term
         return response
 
     # <template>
