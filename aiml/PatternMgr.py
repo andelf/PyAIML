@@ -232,8 +232,6 @@ class PatternMgr:
                                                 if patMatch[j+1:] == words[k:]:
                                                         end = k - 1
                                                         i = k
-                                                        print 'k =', k
-                                                        print 'end =', end
                                                         break
                                 # If we just finished processing the star we cared
                                 # about, we exit the loop early.
@@ -244,8 +242,6 @@ class PatternMgr:
 
                 # extract the star words from the original, unmutilated input.
                 if foundTheRightStar:
-                        print 'found'
-                        print 'debug pattern=', repr(pattern), start, end
                         #print string.join(pattern.split()[start:end+1])
                         if starType == 'star': return string.join(pattern.split()[start:end+1])
                         elif starType == 'thatstar': return string.join(that.split()[start:end+1])
