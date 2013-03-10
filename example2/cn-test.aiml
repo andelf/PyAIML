@@ -31,6 +31,49 @@
 </template>
 </category>
 
+<category>
+  <pattern>*</pattern>
+  <template>
+    <condition>
+      <li name="where" value="">你现在在什么地方?</li>
+      <li>我暂时不会说别的了.</li>
+    </condition>
+  </template>
+</category>
+
+<category>
+<pattern>*</pattern>
+<that>你现在在什么地方</that>
+<template>
+<think><set name="where"><formal><star/></formal></set></think>
+<random>
+  <li><get name="where"/>是个好地方.</li>
+  <li>真希望我也在<get name="where"/>, 陪你.</li>
+  <li>我刚刚看了下<get name="where"/>的天气哦.</li>
+</random>
+</template>
+</category>
+
+
+
+<category>
+  <pattern>外面热么</pattern>
+  <template>
+      你现在在<get name="where"/>,
+      <system>python getweather.py realtime <get name="where"/></system>
+  </template>
+</category>
+
+<category>
+  <pattern>我到*了</pattern>
+  <template>
+    <condition>
+      <li name="where" value=""><think><set name="where"><formal><star/></formal></set></think>
+      嗯我知道了.</li>
+      <li>骗淫, 你明明在<get name="where"/>.</li>
+    </condition>
+  </template>
+</category>
 
 <category>
 <pattern>* 天气</pattern>
