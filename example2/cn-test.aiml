@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<aiml version="1.0">
+
+<!-- Free software (c) 2012 andelf -->
+<!-- This program is open source code released under -->
+<!-- the terms of the GNU General Public License -->
+<!-- as published by the Free Software Foundation. -->
+
+<meta name="author" content="Andelf"/>
+<meta name="language" content="zh"/>
+
+<category>
+<pattern>现在几点了</pattern>
+<template>
+<srai>TIME</srai>
+</template>
+</category>
+
+<category>
+<pattern>几点了</pattern>
+<template>
+<srai>TIME</srai>
+</template>
+</category>
+
+<category>
+<pattern>TIME</pattern>
+<template>
+<system>date</system>
+</template>
+</category>
+
+
+<category>
+<pattern>* 天气</pattern>
+<template>
+<system>python getweather.py realtime <star /></system>
+</template>
+</category>
+
+<category>
+<pattern>告诉我 * 天气</pattern>
+<template>
+<system>python getweather.py realtime <star /></system>
+</template>
+</category>
+
+<category>
+<pattern>* 天气实况</pattern>
+<template>
+<system>python getweather.py realtime <star /></system>
+</template>
+</category>
+
+<category>
+<pattern>* 当前天气</pattern>
+<template>
+<system>python getweather.py realtime <star /></system>
+</template>
+</category>
+
+<category>
+<pattern>* 现在天气</pattern>
+<template>
+<system>python getweather.py realtime <star /></system>
+</template>
+</category>
+
+
+</aiml>

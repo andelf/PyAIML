@@ -1,0 +1,15 @@
+<aiml version="1.0">
+
+<category>
+<pattern>LOAD AIML CNASK</pattern>
+<template>
+
+<!-- Load AIML set -->
+<!-- <learn>cn-profile.aiml</learn> -->
+<learn>cn-test.aiml</learn>
+<!-- <learn>../example1/cn-test.aiml</learn> -->
+
+</template>
+</category>
+
+</aiml>
