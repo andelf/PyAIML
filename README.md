@@ -4,6 +4,20 @@
 
 中文支持维护(current maintainer): andelf <andelf AT gmail.com>
 
+NOTE:
+
+- 目前可以支持中文规则
+- 规则库目测翻译量巨大
+- 规则中请使用半角标点
+- 暂时对 CJK 中的 JK 无支持
+
+Changelog:
+
+- 2013/03/09
+  - 初步中文支持完成
+
+## 以下为原 README
+
 author: Cort Stratton (cort@users.sourceforge.net)
 web: http://pyaiml.sourceforge.net/
 
