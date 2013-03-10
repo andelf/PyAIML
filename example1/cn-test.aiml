@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<aiml version="1.0">
+
+<!-- Free software (c) 2001 ALICE AI Foundation -->
+<!-- This program is open source code released under -->
+<!-- the terms of the GNU General Public License -->
+<!-- as published by the Free Software Foundation. -->
+
+<meta name="author" content="Andelf"/>
+<meta name="language" content="zh"/>
+
+<category>
+<pattern>* 再见</pattern>
+<template>
+<srai>再见</srai>
+</template>
+</category>
+
+<category>
+<pattern>你好</pattern>
+<template>
+<srai>你好</srai>
+</template>
+</category>
+
+<category>
+<pattern>谢谢</pattern>
+<template>
+<random>
+  <li>不客气.</li>
+  <li>你太客气了.</li>
+</random>
+</template>
+</category>
+
+
+
+<category>
+<pattern>再见</pattern>
+<template>
+<random>
+<li>再见<get name="name"/>.</li>
+<li>再见啦, <get name="name"/>.</li>
+<li>下次见, <get name="name"/>.</li>
+<li>谢谢你陪我聊天, <get name="name"/>.</li>
+<li>改天见, <get name="name"/>.</li>
+</random>
+</template>
+</category>
+
+<category>
+<pattern>你好</pattern>
+<template>
+<random>
+<li>你好.</li>
+<li>你也好.</li>
+<li>你好啊.</li>
+</random>
+</template>
+</category>
+
+
+<category>
+<pattern>一个*</pattern>
+<template>
+那个叫<set name="it"><person/></set>东西是什么玩意?
+</template>
+</category>
+
+<category>
+<pattern>_</pattern>
+<that>我怎么称呼你</that>
+<template>
+<think><set name="personality">average</set><set name="name"><formal><star/></formal></set></think>
+很高兴见到你, <get name="name"/>.
+</template>
+</category>
+
+<category>
+  <pattern>无聊啊</pattern>
+  <template>
+    <condition>
+      <li><srai>INACTIVITYQUESTIONS</srai></li>
+    </condition>
+  </template>
+</category>
+
+
+<category>
+  <pattern>*</pattern>
+  <template>
+    <condition>
+      <li><srai>INACTIVITYQUESTIONS</srai></li>
+    </condition>
+  </template>
+</category>
+
+
+
+<category>
+<pattern>INACTIVITYQUESTIONS</pattern>
+<template>
+<condition>
+<li name="name" value="">我怎么称呼你?</li>
+<li><srai>ASK USER A QUESTION</srai></li>
+</condition>
+</template>
+</category>
+
+<category>
+<pattern>ASK USER A QUESTION</pattern>
+<template>
+<condition>
+<li name="age" value="">你多大了?</li>
+<!-- <li name="job" value="">你的职业是?</li> -->
+<!-- <li name="favmovie" value="">你最喜欢的电影是?</li> -->
+<!-- <li name="location" value="">你住哪呢?</li> -->
+<!-- <li name="eyecolor" value="">What color are your eyes?</li> -->
+<!-- <li name="haircolor" value="">What color is your hair?</li> -->
+<li name="favcolor" value="">你最喜欢什么颜色?</li>
+</condition>
+</template>
+</category>
+
+<category>
+<pattern>* 了</pattern>
+<that>你多大了</that>
+<template>
+<think><set name="age"><formal><star/></formal></set></think>
+哇, <get name="age"/> 岁, 如花似玉的年龄.
+</template>
+</category>
+
+
+<category>
+<pattern>*</pattern>
+<that>你多大了</that>
+<template>
+<think><set name="age"><formal><star/></formal></set></think>
+哇, <get name="age"/> 岁, 如花似玉的年龄.
+</template>
+</category>
+
+<category>
+<pattern>我 * 了</pattern>
+<that>你多大了</that>
+<template>
+<think><set name="age"><formal><star/></formal></set></think>
+哇, <get name="age"/> 岁, 如花似玉的年龄.
+</template>
+</category>
+
+
+<category>
+<pattern>_</pattern>
+<that>你最喜欢什么颜色</that>
+<template>
+<think><set name="favcolor"><formal><star/></formal></set></think>
+<get name="favcolor"/>, 我也喜欢, 不过我更喜欢透明色.
+</template>
+</category>
+
+
+</aiml>

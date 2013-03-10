@@ -1,0 +1,16 @@
+<aiml version="1.0">
+
+<!-- This category works with the Standard AIML Set -->
+<category>
+<pattern>LOAD AIML CN</pattern>
+<template>
+
+<!-- Load standard AIML set -->
+<!-- <learn>cn-profile.aiml</learn> -->
+<learn>cn-test.aiml</learn>
+
+
+</template>
+</category>
+
+</aiml>
