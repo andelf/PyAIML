@@ -18,6 +18,9 @@ Changelog:
 
 - 2013/03/09
   - 初步中文支持完成
+- 2013/03/10
+  - 修复 match() BUG
+  - 添加 example1 example2 两个例子
 
 ## 以下为原 README
 
