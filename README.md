@@ -13,6 +13,7 @@ NOTE:
 - 规则中请使用半角标点
 - 暂时对 CJK 中的 JK 无支持
 - 修正了 match() 函数的一个严重 BUG, 会导致 * 错误匹配
+- 可以完美保存会话进度
 
 Changelog:
 
@@ -21,6 +22,9 @@ Changelog:
 - 2013/03/10
   - 修复 match() BUG
   - 添加 example1 example2 两个例子
+- 2013/03/12
+  - 为 Kernel() 添加 session 保存参数
+  - 添加 example3
 
 ## 以下为原 README
 
