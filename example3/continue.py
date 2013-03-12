@@ -3,10 +3,10 @@ sys.path.insert(0, "../")
 import shelve
 
 import aiml
+import copy
 
-
-# use any dick like obj here
-db = shelve.open("session.db", "c", writeback=True)
+# use any dict like obj here
+db = copy.deepcopy(dict(shelve.open("session.db", "c")))
 # The Kernel object is the public interface to
 # the AIML interpreter.
 
@@ -19,4 +19,4 @@ k.loadBrain("brain.sav")
 # line and printing responses.
 while True:
     print k.respond(raw_input("> "))
-    db.sync()
+    #db.sync()
