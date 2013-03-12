@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<aiml version="1.0">
+
+<meta name="author" content="Andelf"/>
+<meta name="language" content="zh"/>
+
+<category>
+<pattern>LOGIN</pattern>
+<template>
+你的用户名是?
+</template>
+</category>
+
+<category>
+<pattern>*</pattern>
+<template>
+  <condition>
+    <li name="password" value="123456">密码正确, <get name="username" />已通过验证.</li>
+    <li name="password" value="">请登陆.</li>
+  </condition>
+</template>
+</category>
+
+
+<category>
+<pattern>*</pattern>
+<that>你的用户名是</that>
+<template>
+<think><set name="username"><star/></set></think>
+你的密码是?
+</template>
+</category>
+
+<category>
+<pattern>*</pattern>
+<that>你的密码是</that>
+<template>
+<think><set name="password"><formal><star/></formal></set></think>
+谢谢.
+</template>
+</category>
+
+
+</aiml>
