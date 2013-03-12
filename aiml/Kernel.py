@@ -30,7 +30,7 @@ class Kernel:
     _outputHistory = "_outputHistory"   # keys to a queue (list) of recent responses.
     _inputStack = "_inputStack"         # Should always be empty in between calls to respond()
 
-    def __init__(self):
+    def __init__(self, sessionStore=None):
         self._verboseMode = True
         self._version = "PyAIML 0.8.6"
         self._brain = PatternMgr()
@@ -38,7 +38,10 @@ class Kernel:
         self._textEncoding = "utf-8"
 
         # set up the sessions
-        self._sessions = {}
+        if sessionStore is not None:
+            self._sessions = sessionStore
+        else:
+            self._sessions = {}
         self._addSession(self._globalSessionID)
 
         # Set up the bot predicates
