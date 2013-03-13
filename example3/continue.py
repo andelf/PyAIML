@@ -13,7 +13,7 @@ db = copy.deepcopy(dict(shelve.open("session.db", "c")))
 k = aiml.Kernel(sessionStore=db)
 
 # load from a saved brain
-k.loadBrain("brain.sav")
+k.restoreBrain("brain.sav")
 
 # Loop forever, reading user input from the command
 # line and printing responses.

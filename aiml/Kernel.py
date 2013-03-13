@@ -105,7 +105,7 @@ class Kernel:
         """
         start = time.clock()
         if brainFile:
-            self.loadBrain(brainFile)
+            self.restoreBrain(brainFile)
 
         # learnFiles might be a string, in which case it should be
         # turned into a single-element list.
@@ -149,7 +149,7 @@ class Kernel:
         del(self._brain)
         self.__init__()
 
-    def loadBrain(self, filename):
+    def restoreBrain(self, filename):
         """Attempt to load a previously-saved 'brain' from the
         specified filename.
 
