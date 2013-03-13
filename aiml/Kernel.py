@@ -248,7 +248,7 @@ class Kernel:
             self._subbers[s] = WordSub()
             # iterate over the key,value pairs and add them to the subber
             for k,v in parser.items(s):
-                self._subbers[s][k] = v
+                self._subbers[s][unicode(k, self._textEncoding)] = unicode(v, self._textEncoding)
 
     def _addSession(self, sessionID):
         """Create a new session with the specified ID string."""
@@ -566,8 +566,13 @@ class Kernel:
         <date> elements resolve to the current date and time.  The
         AIML specification doesn't require any particular format for
         this information, so I go with whatever's simplest.
+        ADDED: format parameter support
 
         """
+        attr = elem[1]
+        if 'format' in attr:
+            format = attr['format'].encode(self._textEncoding)
+            return unicode(time.strftime(format, time.localtime()), self._textEncoding)
         return time.asctime()
 
     # <formal>
