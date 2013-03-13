@@ -41,6 +41,26 @@ class PatternMgr:
                 """Print all learned patterns, for debugging purposes."""
                 pprint.pprint(self._root)
 
+        def dumps(self):
+                """Dump current patterns to a string for saving."""
+                try:
+                        data = [self._templateCount, self._botName, self._root]
+                        return marshal.dumps(data)
+                except Exception, e:
+                        print "Error dumping to str"
+                        raise Exception, e
+
+        def loads(self, raw):
+                """Load patterns from a previously dumps()d patterns."""
+                try:
+                        data = marshal.loads(raw)
+                        self._templateCount = data[0]
+                        self._botName = data[1]
+                        self._root = data[2]
+                except Exception, e:
+                        print "Error loading from str"
+                        raise Exception, e
+
         def save(self, filename):
                 """Dump the current patterns to the file specified by filename.  To
                 restore later, use restore().
@@ -242,7 +262,6 @@ class PatternMgr:
 
                 # extract the star words from the original, unmutilated input.
                 if foundTheRightStar:
-                        #print string.join(pattern.split()[start:end+1])
                         if starType == 'star': return string.join(pattern.split()[start:end+1])
                         elif starType == 'thatstar': return string.join(that.split()[start:end+1])
                         elif starType == 'topicstar': return string.join(topic.split()[start:end+1])

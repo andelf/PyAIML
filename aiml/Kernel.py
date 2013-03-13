@@ -171,6 +171,14 @@ class Kernel:
         if self._verboseMode:
             print "done (%.2f seconds)" % (time.clock() - start)
 
+    def dumpsBrain(self):
+        """Dump to a str"""
+        return self._brain.dumps()
+
+    def loadsBrain(self, raw):
+        """Load from str"""
+        self._brain.loads(raw)
+
     def getPredicate(self, name, sessionID = _globalSessionID):
         """Retrieve the current value of the predicate 'name' from the
         specified session.
