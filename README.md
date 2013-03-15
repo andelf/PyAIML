@@ -23,8 +23,10 @@ Changelog:
   - 修复 match() BUG
   - 添加 example1 example2 两个例子
 - 2013/03/12
-  - 为 Kernel() 添加 session 保存参数
+  - 为 Kernel() 添加 session 参数
   - 添加 example3
+- 2013/03/14
+  - 添加 dumps(), loads() 保存 PatterMgr()
 
 ## 以下为原 README
 
