@@ -248,11 +248,22 @@ class PatternMgr:
                                                 # pattern again, the star has ended.
                                                 # FIXED: for pattch "* A B", "A C A B" will match
                                                 # and this is a bug
-                                                #if patMatch[j+1] == words[k]:
-                                                if patMatch[j+1:] == words[k:]:
-                                                        end = k - 1
-                                                        i = k
-                                                        break
+                                                if patMatch[j+1] == words[k]:
+                                                        tj = j+1 + 1
+                                                        tk = k + 1
+                                                        ok = True
+                                                        while tj < len(patMatch) and tk < len(words):
+                                                                if patMatch[tj] in [self._STAR, self._UNDERSCORE]:
+                                                                        break
+                                                                if patMatch[tj] != words[tk]:
+                                                                        ok = False
+                                                                        break
+                                                                tj += 1
+                                                                tk += 1
+                                                        if ok:
+                                                                end = k - 1
+                                                                i = k
+                                                                break
                                 # If we just finished processing the star we cared
                                 # about, we exit the loop early.
                                 if foundTheRightStar:
