@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<aiml version="1.0">
+
+<!-- Free software (c) 2012 andelf -->
+<!-- This program is open source code released under -->
+<!-- the terms of the GNU General Public License -->
+<!-- as published by the Free Software Foundation. -->
+
+<meta name="author" content="Andelf"/>
+<meta name="language" content="zh"/>
+
+<category>
+<pattern>* 再见</pattern>
+<template>
+<srai>BYE</srai>
+</template>
+</category>
+
+<category>
+<pattern>再见</pattern>
+<template>
+<srai>BYE</srai>
+</template>
+</category>
+
+<category>
+<pattern>你好</pattern>
+<template>
+<srai>HELLO</srai>
+</template>
+</category>
+
+<category>
+<pattern>谢谢</pattern>
+<template>
+<random>
+  <li>不客气.</li>
+  <li>你太客气了.</li>
+</random>
+</template>
+</category>
+
+
+<category>
+<pattern>BYE</pattern>
+<template>
+<random>
+<li>再见<get name="name"/>.</li>
+<li>再见啦, <get name="name"/>.</li>
+<li>下次见, <get name="name"/>.</li>
+<li>谢谢你陪我聊天, <get name="name"/>.</li>
+<li>改天见, <get name="name"/>.</li>
+</random>
+</template>
+</category>
+
+<category>
+<pattern>HELLO</pattern>
+<template>
+<random>
+<li>你好.</li>
+<li>你也好.</li>
+<li>你好啊.</li>
+</random>
+</template>
+</category>
+
+
+<category>
+<pattern>一个*</pattern>
+<template>
+那个叫<set name="it"><person/></set>东西是什么玩意?
+</template>
+</category>
+
+<category>
+<pattern>_</pattern>
+<that>我怎么称呼你</that>
+<template>
+<think><set name="personality">average</set><set name="name"><formal><star/></formal></set></think>
+很高兴见到你, <get name="name"/>.
+</template>
+</category>
+
+
+<category>
+  <pattern>*</pattern>
+  <template>
+    <condition>
+      <li><srai>INACTIVITYQUESTIONS</srai></li>
+    </condition>
+  </template>
+</category>
+
+
+<category>
+<pattern>INACTIVITYQUESTIONS</pattern>
+<template>
+<condition>
+<li name="name" value="">我怎么称呼你?</li>
+<li><srai>ASK USER A QUESTION</srai></li>
+</condition>
+</template>
+</category>
+
+<category>
+<pattern>ASK USER A QUESTION</pattern>
+<template>
+<random>
+  <li>咱随便聊聊吧</li>
+  <li>其实我不是很聪明,不过你可以教教我</li>
+  <li>聊聊人生聊聊理想把</li>
+</random>
+</template>
+</category>
+
+<category>
+<pattern>* 的名字</pattern>
+<template>
+<person />是<bot name="name" />.
+</template>
+</category>
+
+<category>
+<pattern>生日快乐</pattern>
+<template>
+今天是<date format="%Y年%m月%d日" />, 不是我生日.
+</template>
+</category>
+
+<category>
+<pattern>你懂多少 *</pattern>
+<template>
+我懂<size />条规则.
+</template>
+</category>
+
+<category>
+<pattern>你的版本 *</pattern>
+<template>
+我已经<version />了.
+</template>
+</category>
+
+<category>
+<pattern>说错 *</pattern>
+<template>
+那我应该怎么说
+</template>
+</category>
+
+<category>
+<pattern>这么说不 *</pattern>
+<template>
+那我应该怎么说
+</template>
+</category>
+
+<category>
+<pattern>这样说不 *</pattern>
+<template>
+那我应该怎么说
+</template>
+</category>
+
+<category>
+<pattern>你应该说 *</pattern>
+<that>那我应该怎么说</that>
+<template>
+  <srai><input index="3" /> XLEARN REPLY <star index="1" /></srai>
+</template>
+</category>
+
+
+<category>
+<pattern>应该说 *</pattern>
+<that>那我应该怎么说</that>
+<template>
+  <srai><input index="3" /> XLEARN REPLY <star index="1" /></srai>
+</template>
+</category>
+
+<category>
+  <pattern>* XLEARN REPLY *</pattern>
+  <template>
+    <system>python learn.py '<star index="1" />' '<star index="2" />'</system>
+    <learn>auto-gen.aiml</learn>
+    好的我学会了, 你可以再问我试试.
+  </template>
+</category>
+
+
+</aiml>
