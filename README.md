@@ -15,6 +15,10 @@ NOTE:
 - 修正了 match() 函数的一个严重 BUG, 会导致 * 错误匹配
 - 可以完美保存会话进度
 
+Python 3 Support?
+
+[via #8](https://github.com/andelf/PyAIML/issues/8) [py3Aiml_Chinese](https://github.com/yaleimeng/py3Aiml_Chinese)
+
 Changelog:
 
 - 2013/03/09
