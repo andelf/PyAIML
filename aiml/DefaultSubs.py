@@ -26,7 +26,7 @@ to a Windows-style INI file with the following format:
     he = I
     # and so on...
 
-    # the 'normal' section contains subtitutions run on every input
+    # the 'normal' section contains substitutions run on every input
     # string passed into Kernel.respond().  It's mainly used to
     # correct common misspellings, and to convert contractions
     # ("WHAT'S") into a format that will match an AIML pattern ("WHAT

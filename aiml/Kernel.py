@@ -141,7 +141,7 @@ class Kernel:
     def resetBrain(self):
         """Reset the brain to its initial state.
 
-        This is essentially equivilant to:
+        This is essentially equivalent to:
             del(kern)
             kern = aiml.Kernel()
 
@@ -980,7 +980,7 @@ class Kernel:
             recent, and so on.
 
         <that> elements (when they appear inside <template> elements)
-        are the output equivilant of <input> elements; they return one
+        are the output equivalent of <input> elements; they return one
         of the Kernel's previous responses.
 
         """
